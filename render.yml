@@ -1,3 +1,4 @@
+
 name: Render pyramid short
 
 on:
@@ -33,7 +34,7 @@ jobs:
       - name: Narration + sound + shot timing
         run: |
           pip install edge-tts numpy
-          python scripts/make_audio.py
+          python make_audio.py
 
       - name: Install npm packages
         run: npm install --no-audit --no-fund
@@ -44,7 +45,7 @@ jobs:
       - name: Render MP4 (software WebGL)
         run: |
           SCALE="${{ github.event.inputs.scale }}"
-          npx remotion render src/index.ts PyramidShort out/pyramid.mp4 \
+          npx remotion render index.ts PyramidShort out/pyramid.mp4 \
             --codec h264 --crf 18 --gl=swangle --concurrency=3 --timeout=180000 --scale="${SCALE:-1}"
 
       - name: Check the file
@@ -56,3 +57,4 @@ jobs:
           name: pyramid-short-mp4
           path: out/pyramid.mp4
           retention-days: 30
+          
