@@ -3,11 +3,11 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
-    "audio": "python scripts/make_audio.py",
-    "dev": "remotion studio src/index.ts",
-    "still": "remotion still src/index.ts PyramidShort out/still.png --frame=700 --scale=0.5 --gl=angle",
-    "render": "remotion render src/index.ts PyramidShort out/pyramid.mp4 --codec h264 --crf 18 --gl=angle",
-    "render:ci": "remotion render src/index.ts PyramidShort out/pyramid.mp4 --codec h264 --crf 18 --gl=swangle --concurrency=3 --timeout=180000"
+    "audio": "python make_audio.py",
+    "dev": "remotion studio index.ts",
+    "still": "remotion still index.ts PyramidShort out/still.png --frame=700 --scale=0.5 --gl=angle",
+    "render": "remotion render index.ts PyramidShort out/pyramid.mp4 --codec h264 --crf 18 --gl=angle",
+    "render:ci": "remotion render index.ts PyramidShort out/pyramid.mp4 --codec h264 --crf 18 --gl=swangle --concurrency=3 --timeout=180000"
   },
   "dependencies": {
     "@react-three/fiber": "9.1.2",
